@@ -1,7 +1,18 @@
-function reverse(string: string): string;
-function reverse<T>(array: T[]): T[];
-function reverse<T>(stringOrArray: string | T[]): string | T[] {
-  return typeof stringOrArray === "string"
-      ? stringOrArray.split("").reverse().join("")
-      : stringOrArray.slice().reverse();
+function toUpper(value: string | undefined): string | undefined;
+function toUpper(value: string): string ;
+function toUpper(value: string | undefined): string | undefined {
+    return value?.toString();
 }
+
+function getStringOrUndefined(): string | undefined {
+    return undefined;
+}
+
+function getString(): string {
+    return 'abc'
+}
+
+const x: string | undefined = toUpper(getStringOrUndefined())
+const y: string = toUpper(getString());
+
+console.log("### ", {x, y})
